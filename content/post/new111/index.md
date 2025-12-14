@@ -10,4 +10,4 @@ haaaaaaaaa
 git add .
 git commit -m "写了一篇新文章"
 git push
-![[img1.png]]
+![](img1.png)
