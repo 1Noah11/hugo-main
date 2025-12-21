@@ -11,14 +11,12 @@
             "id": "abaa384f9e417a79",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "image",
               "state": {
-                "file": "DC-3靶场渗透详细过程/index.md",
-                "mode": "source",
-                "source": false
+                "file": "DC-3靶场渗透详细过程/picture/image001.png"
               },
-              "icon": "lucide-file",
-              "title": "index"
+              "icon": "lucide-image",
+              "title": "image001"
             }
           }
         ]
@@ -185,21 +183,23 @@
   },
   "active": "abaa384f9e417a79",
   "lastOpenFiles": [
-    "DC-3靶场渗透详细过程/picture/image076.png",
-    "DC-3靶场渗透详细过程/picture/image079.png",
-    "DC-3靶场渗透详细过程/picture/image078.png",
-    "DC-3靶场渗透详细过程/picture/image077.png",
+    "DC-3靶场渗透详细过程/image094.png",
+    "DC-3靶场渗透详细过程/image093.png",
+    "DC-3靶场渗透详细过程/image092.png",
+    "DC-3靶场渗透详细过程/image091.png",
+    "DC-3靶场渗透详细过程/image090.png",
+    "DC-3靶场渗透详细过程/image089.png",
+    "DC-3靶场渗透详细过程/image088.png",
+    "DC-3靶场渗透详细过程/image087.png",
+    "DC-3靶场渗透详细过程/image086.png",
+    "DC-3靶场渗透详细过程/image085.png",
+    "DC-3靶场渗透详细过程/image084.png",
+    "markdown-syntax/index.md",
+    "new111/常用命令.md",
+    "new111/picture",
     "DC-3靶场渗透详细过程/index.md",
-    "DC-3靶场渗透详细过程/picture/image048.png",
-    "DC-3靶场渗透详细过程/picture/image047.png",
-    "DC-3靶场渗透详细过程/picture/image046.png",
-    "DC-3靶场渗透详细过程/picture/image045.png",
-    "DC-3靶场渗透详细过程/picture/image044.png",
-    "DC-3靶场渗透详细过程/picture/image043.png",
-    "DC-3靶场渗透详细过程/picture/image042.png",
     "DC-3靶场渗透详细过程/picture",
     "DC-3靶场渗透详细过程/dc3 - 用于合并.files",
-    "new111/index.md",
     "DC-3靶场渗透详细过程",
     "myFirstblog/index.md",
     "new111/pic"

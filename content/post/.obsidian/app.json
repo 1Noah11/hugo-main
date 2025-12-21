@@ -1,5 +1,5 @@
 {
-  "attachmentFolderPath": "./picture",
+  "attachmentFolderPath": "./",
   "alwaysUpdateLinks": true,
   "useMarkdownLinks": true,
   "spellcheck": false
