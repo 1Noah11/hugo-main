@@ -11,12 +11,14 @@
             "id": "abaa384f9e417a79",
             "type": "leaf",
             "state": {
-              "type": "image",
+              "type": "markdown",
               "state": {
-                "file": "DC-3靶场渗透详细过程/picture/image001.png"
+                "file": "bugku/bugku做题记录.md",
+                "mode": "source",
+                "source": false
               },
-              "icon": "lucide-image",
-              "title": "image001"
+              "icon": "lucide-file",
+              "title": "bugku做题记录"
             }
           }
         ]
@@ -183,21 +185,23 @@
   },
   "active": "abaa384f9e417a79",
   "lastOpenFiles": [
-    "DC-3靶场渗透详细过程/image094.png",
-    "DC-3靶场渗透详细过程/image093.png",
-    "DC-3靶场渗透详细过程/image092.png",
-    "DC-3靶场渗透详细过程/image091.png",
-    "DC-3靶场渗透详细过程/image090.png",
-    "DC-3靶场渗透详细过程/image089.png",
-    "DC-3靶场渗透详细过程/image088.png",
-    "DC-3靶场渗透详细过程/image087.png",
-    "DC-3靶场渗透详细过程/image086.png",
-    "DC-3靶场渗透详细过程/image085.png",
-    "DC-3靶场渗透详细过程/image084.png",
-    "markdown-syntax/index.md",
+    "bugku/index.md",
+    "bugku/img17.png",
+    "bugku/img16.png",
+    "bugku/img15.png",
+    "bugku/img14.png",
+    "bugku/img13.png",
+    "bugku/img12.png",
+    "bugku/img11.png",
+    "bugku/img10.png",
+    "bugku/img9.png",
+    "bugku/img8.png",
+    "bugku/bugku做题记录.md",
     "new111/常用命令.md",
-    "new111/picture",
+    "bugku",
     "DC-3靶场渗透详细过程/index.md",
+    "markdown-syntax/index.md",
+    "new111/picture",
     "DC-3靶场渗透详细过程/picture",
     "DC-3靶场渗透详细过程/dc3 - 用于合并.files",
     "DC-3靶场渗透详细过程",
