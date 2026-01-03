@@ -1,4 +1,6 @@
 baseurl: https://1noah11.github.io/lyeve.github.io/
+relativeURLs: true
+canonifyURLs: true
 languageCode: en-us
 theme: hugo-theme-stack
 title: Example Site
