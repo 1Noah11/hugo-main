@@ -4,7 +4,7 @@ draft = true
 title = 'Bugku'
 +++
 
-
+# 12.29-1.4号
 做了20题左右，仅记录了几道略难的题目。
 ![](img0.png)
 ## source
@@ -16,10 +16,10 @@ title = 'Bugku'
 用网页开发者工具查看cookie，也没有东西
 尝试用目录扫描工具，dirsearch扫一下
 ![](img2.png)
-发现有 .git 隐藏文件夹（它用来记录当前项目所有的版本历史，也能恢复代码到某次版本下）   那怎么把这个 .git 文件夹弄到本地来呢
+发现有 .git 隐藏文件夹（它用来记录当前项目所有的版本历史，也能恢复代码到某次版本下）   
+那怎么把这个 .git 文件夹弄到本地来呢
 
-
-使用kali自带的wget命令，
+这里我使用kali自带的wget命令，
 wget -r https://你的服务器网站地址/.git
 
 ![](img3.png)
@@ -52,20 +52,16 @@ wget -r https://你的服务器网站地址/.git
 发现ip禁止访问，有提示是要本地管理员登录，所以尝试把ip改为127.0.0.1
 用bp抓包重放，添加X-Forwarded-For:127.0.0.1字段
 ![](img11.png)
-回显变了，说明ip是对的，要修改密码账号信息才可以
-，然后试了一下admin就成功了
+回显变了，说明ip是对的，要修改密码账号信息才可以，然后试了一下admin就成功了
 ![](img12.png)
 
 
 ## game1
-猜测玩游戏得到一定分数就可以获得flag，抓包然后修改score为10000，不行
-因为后面有个sign值，sign值的作用，进行签名，把数据做了加密后产生的，后台会把提交过去的数据做相同处理产生 sign 值和你发过去的 sign 值做判断，不一致则数据是被篡改了
-
+猜测玩游戏得到一定分数就可以获得flag，抓包然后修改score为10000，不行。因为后面有个sign值，sign值的作用，进行签名，把数据做了加密后产生的，后台会把提交过去的数据做相同处理产生 sign 值和你发过去的 sign 值做判断，不一致则数据是被篡改了
 ![](img13.png)
 
 
-查看源码，sign值是如何生成的
-发现是base64
+查看源码，找一下sign值是如何生成的   发现是base64
 
 ![](img14.png)
 
@@ -74,52 +70,50 @@ wget -r https://你的服务器网站地址/.git
 把生成的加密结果放入bp发现还是不行
 继续分析源码，发现有一个自定义的base.js，应该是自设的编码机制
 然后直接在浏览器控制台调用函数，解码后的内容复制到bp的sign
-
 ![](img16.png)
 ![](img17.png)成功拿到flag 
 flag{42febc48bc0404dc97ad61dab97d7d6d}
 
 
-
+# 1.5-1.9
 ## bp
 是一个登录界面，随便提交一个密码
-![](Pasted%20image%2020260105181230.png)
+![](img18.png)
 
 然后跳转到check.php页面，查看源码
-![](Pasted%20image%2020260105181445.png)
+![](img19.png)
 
 发现要到success.php页面然后参数code正确才可以
 然后code不等于bugku10000时才可以，应该是密码正确了，经过check.php验证，会自动生成正确的code
 所以直接拿字典爆破，
-![](Pasted%20image%2020260105181553.png)
+![](img20.png)
 发现长度全都一样
-
-![](Pasted%20image%2020260105182148.png)
+![](img21.png)
 
 可以让 burp 筛选下字符里不包含 bugku10000 
-![](Pasted%20image%2020260105183814.png)
+![](img22.png)
 
 
-![](Pasted%20image%2020260105184242.png)
+![](img23.png)
 成功获取flag
 
-![](Pasted%20image%2020260105184257.png)
+![](img24.png)
 
 ## eval
 查看源码：
-![](Pasted%20image%2020260106144443.png)
+![](img25.png)
 
 需要通过hello参数传递内容，输入?hello=$GLOBALS，看一下全局变量
 
 
-![](Pasted%20image%2020260106145247.png)
+![](img26.png)
 看到了flag变量，但值没有
 
 eval函数会执行字符串中的php代码,试一下
-![](Pasted%20image%2020260106145555.png)
+![](img27.png)
 可以把传入的hello参数设置为一句话木马
 然后用蚁剑连接
-![](Pasted%20image%2020260106150728.png)
+![](img28.png)
 连接成功后就可以看到flag.php文件，看到flag了
 ，忘记截图了。。
 
@@ -131,28 +125,28 @@ eval函数会执行字符串中的php代码,试一下
 robots.txt 文件作用是
 避免爬虫抓取不必要的内容（如重复页面、后台页面），节省服务器带宽和资源。  
 引导搜索引擎更高效地抓取网站的重要内容，有助于优化 SEO（搜索引擎优化排名）
-![](Pasted%20image%2020260106154338.png)
+![](img29.png)
 查看后发现两行内容，第一行是解释对哪些类别的爬虫生效
 第二行是指定禁止爬虫抓取的路径。
-![](Pasted%20image%2020260106155427.png)
+![](img30.png)
 
 我们查看一下resul1.php页面
-![](Pasted%20image%2020260106155702.png)
+![](img31.png)
 
 说要管理员身份
 结合他给的x参数
-![](Pasted%20image%2020260106161137.png)
+![](img32.png)
 
 ## 速度要快
 
 查看源码，说是要post传递一个margin的参数
 
 
-![](Pasted%20image%2020260109124057.png)
+![](img33.png)
 
 然后继续找，看请求头，发现了疑似flag的值
-一看就是base64编码
-![](Pasted%20image%2020260109124215.png)
+结尾是双等号  一看就是base64编码
+![](img34.png)
 
 解码后得到：      跑的还不错，给你flag吧: MTY4NTcz
 
@@ -221,7 +215,7 @@ if __name__ == "__main__":
 ```
 
 运行后就得到了flag
-![](Pasted%20image%2020260109130344.png)
+![](img35.png)
 
 ## file_get_contents
 
@@ -246,6 +240,6 @@ echo "<p>sorry!</p>";
 extract();  这个函数会将 URL 参数（GET 请求）转化为变量名和变量值
 变量f是从fn文件中读取的内容，如果ac等于f，就输出flag
 下面关键就是区找flag文件了，用dirsearch扫发现了flag.txt
-![](Pasted%20image%2020260109132518.png)
+![](img36.png)
 打开flag.txt文件，只有bugku字段，fn就是flag.txt，ac就是bugku。
-![](Pasted%20image%2020260109133236.png)
+![](img37.png)
