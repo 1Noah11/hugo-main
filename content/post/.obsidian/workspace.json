@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "bugku/bugku做题记录.md",
+                "file": "bugku/index.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "bugku做题记录"
+              "title": "index"
             }
           }
         ]
@@ -94,7 +94,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "new111/index.md",
+                "file": "bugku/index.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -113,7 +113,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "new111/index.md",
+                "file": "bugku/index.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
@@ -156,7 +156,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "new111/index.md",
+                "file": "bugku/index.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
@@ -165,12 +165,12 @@
               "title": "index 的大纲"
             }
           }
-        ]
+        ],
+        "currentTab": 4
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -185,19 +185,20 @@
   },
   "active": "abaa384f9e417a79",
   "lastOpenFiles": [
-    "new111/常用命令.md",
-    "bugku/bugku做题记录.md",
+    "bugku/Pasted image 20260109133236.png",
+    "bugku/Pasted image 20260109132518.png",
+    "bugku/Pasted image 20260109130344.png",
+    "bugku/Pasted image 20260109124215.png",
+    "bugku/Pasted image 20260109124057.png",
+    "bugku/Pasted image 20260105181230.png",
+    "bugku/Pasted image 20260105181445.png",
     "bugku/index.md",
-    "bugku/img17.png",
-    "bugku/img16.png",
-    "bugku/img15.png",
-    "bugku/img14.png",
-    "bugku/img13.png",
-    "bugku/img12.png",
-    "bugku/img11.png",
-    "bugku/img10.png",
-    "bugku/img9.png",
-    "bugku/img8.png",
+    "bugku/Pasted image 20260106161137.png",
+    "bugku/Pasted image 20260106155702.png",
+    "bugku/Pasted image 20260106155427.png",
+    "bugku/bugku.md",
+    "bugku/Pasted image 20260106154338.png",
+    "new111/常用命令.md",
     "bugku",
     "DC-3靶场渗透详细过程/index.md",
     "markdown-syntax/index.md",

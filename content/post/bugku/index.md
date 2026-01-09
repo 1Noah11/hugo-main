@@ -80,3 +80,172 @@ wget -r https://你的服务器网站地址/.git
 flag{42febc48bc0404dc97ad61dab97d7d6d}
 
 
+
+## bp
+是一个登录界面，随便提交一个密码
+![](Pasted%20image%2020260105181230.png)
+
+然后跳转到check.php页面，查看源码
+![](Pasted%20image%2020260105181445.png)
+
+发现要到success.php页面然后参数code正确才可以
+然后code不等于bugku10000时才可以，应该是密码正确了，经过check.php验证，会自动生成正确的code
+所以直接拿字典爆破，
+![](Pasted%20image%2020260105181553.png)
+发现长度全都一样
+
+![](Pasted%20image%2020260105182148.png)
+
+可以让 burp 筛选下字符里不包含 bugku10000 
+![](Pasted%20image%2020260105183814.png)
+
+
+![](Pasted%20image%2020260105184242.png)
+成功获取flag
+
+![](Pasted%20image%2020260105184257.png)
+
+## eval
+查看源码：
+![](Pasted%20image%2020260106144443.png)
+
+需要通过hello参数传递内容，输入?hello=$GLOBALS，看一下全局变量
+
+
+![](Pasted%20image%2020260106145247.png)
+看到了flag变量，但值没有
+
+eval函数会执行字符串中的php代码,试一下
+![](Pasted%20image%2020260106145555.png)
+可以把传入的hello参数设置为一句话木马
+然后用蚁剑连接
+![](Pasted%20image%2020260106150728.png)
+连接成功后就可以看到flag.php文件，看到flag了
+，忘记截图了。。
+
+
+## 需要管理员
+
+打开题目发现是404界面，源码也没有有用的信息
+扫描一下发现有个robots.txt
+robots.txt 文件作用是
+避免爬虫抓取不必要的内容（如重复页面、后台页面），节省服务器带宽和资源。  
+引导搜索引擎更高效地抓取网站的重要内容，有助于优化 SEO（搜索引擎优化排名）
+![](Pasted%20image%2020260106154338.png)
+查看后发现两行内容，第一行是解释对哪些类别的爬虫生效
+第二行是指定禁止爬虫抓取的路径。
+![](Pasted%20image%2020260106155427.png)
+
+我们查看一下resul1.php页面
+![](Pasted%20image%2020260106155702.png)
+
+说要管理员身份
+结合他给的x参数
+![](Pasted%20image%2020260106161137.png)
+
+## 速度要快
+
+查看源码，说是要post传递一个margin的参数
+
+
+![](Pasted%20image%2020260109124057.png)
+
+然后继续找，看请求头，发现了疑似flag的值
+一看就是base64编码
+![](Pasted%20image%2020260109124215.png)
+
+解码后得到：      跑的还不错，给你flag吧: MTY4NTcz
+
+试了提交flag不对，结合刚开始发现的margin参数，应该是margin参数要等于MTY4NTcz
+因为要先请求获得flag字段，然后解码，在传递flag参数，这个题肯定要用脚本来做，
+然后试了一下发现还是不行
+
+后面觉得base64解码后的字符串没有什么用，不像是margin的值，然后尝试再次解码，发现解码后是一个数字了，这次估计就对了
+
+```
+import requests  
+import base64  
+import re  
+  
+url = "http://171.80.2.169:11642/" 
+def solve():  
+    session = requests.Session()  
+  
+    try:  
+        # 1. 获取响应头  
+        response = session.get(url)  
+        flag_encoded = response.headers.get('flag')  
+  
+        if not flag_encoded:  
+            print("错误：响应头中未找到 'flag'")  
+            return  
+  
+        print(f"获取到的原始 Flag (Base64): {flag_encoded}")  
+  
+        # 2. 第一层解码并转为 UTF-8 字符串  
+        # 结果类似于: "跑得还不错，给你flag： NDc4MTQ1"        
+        first_decode_bytes = base64.b64decode(flag_encoded)  
+        first_decode_text = first_decode_bytes.decode('utf-8')  
+        print(f"第一层解码结果: {first_decode_text}")  
+  
+        # 3. 提取真正的第二次 Base64 字符串  
+        # 使用正则表达式匹配冒号后面的 Base64 字符，或者直接通过分割字符串  
+        # 这里处理中文冒号 '：' 和英文冒号 ':'       
+         if "：" in first_decode_text:  
+            second_b64_part = first_decode_text.split("：")[-1].strip()  
+        elif ":" in first_decode_text:  
+            second_b64_part = first_decode_text.split(":")[-1].strip()  
+        else:  
+            # 如果没有冒号，尝试取最后一段空格后的内容  
+            second_b64_part = first_decode_text.split()[-1].strip()  
+  
+        print(f"提取出的待解码部分: {second_b64_part}")  
+  
+        # 4. 第二层解码  
+        final_flag = base64.b64decode(second_b64_part).decode('utf-8')  
+        print(f"最终结果 (margin): {final_flag}")  
+  
+        # 5. POST 提交  
+        data = {'margin': final_flag}  
+        post_response = session.post(url, data=data)  
+  
+        print("--- 响应结果 ---")  
+        print(post_response.text)  
+  
+    except Exception as e:  
+        print(f"运行过程中出现错误: {e}")  
+  
+  
+if __name__ == "__main__":  
+    solve()
+```
+
+运行后就得到了flag
+![](Pasted%20image%2020260109130344.png)
+
+## file_get_contents
+
+打开题目 
+```<?php  
+extract($_GET);  
+if (!empty($ac))  
+{  
+$f = trim(file_get_contents($fn));  
+if ($ac === $f)  
+{  
+echo "<p>This is flag:" ." $flag</p>";  
+}  
+else  
+{  
+echo "<p>sorry!</p>";  
+}  
+}  
+?>
+
+```
+extract();  这个函数会将 URL 参数（GET 请求）转化为变量名和变量值
+变量f是从fn文件中读取的内容，如果ac等于f，就输出flag
+下面关键就是区找flag文件了，用dirsearch扫发现了flag.txt
+![](Pasted%20image%2020260109132518.png)
+打开flag.txt文件，只有bugku字段，fn就是flag.txt，ac就是bugku。
+![](Pasted%20image%2020260109133236.png)
