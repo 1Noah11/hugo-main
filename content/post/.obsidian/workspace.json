@@ -11,14 +11,12 @@
             "id": "abaa384f9e417a79",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "image",
               "state": {
-                "file": "bugku/index.md",
-                "mode": "source",
-                "source": false
+                "file": "bugku/img67.png"
               },
-              "icon": "lucide-file",
-              "title": "index"
+              "icon": "lucide-image",
+              "title": "img67"
             }
           }
         ]
@@ -156,13 +154,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "bugku/index.md",
+                "file": "bugku/img67.png",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "index 的大纲"
+              "title": "img67 的大纲"
             }
           }
         ],
@@ -185,28 +183,28 @@
   },
   "active": "abaa384f9e417a79",
   "lastOpenFiles": [
-    "bugku/Pasted image 20260116203703.png",
-    "bugku/Pasted image 20260116202400.png",
-    "bugku/Pasted image 20260116202021.png",
-    "bugku/Pasted image 20260116195936.png",
-    "bugku/Pasted image 20260116195049.png",
-    "bugku/Pasted image 20260116190120.png",
-    "bugku/Pasted image 20260116183521.png",
-    "bugku/Pasted image 20260116165811.png",
-    "bugku/Pasted image 20260116165434.png",
-    "bugku/Pasted image 20260116165341.png",
-    "bugku/Pasted image 20260116165323.png",
+    "bugku/img66.png",
+    "bugku/img65.png",
+    "bugku/img64.png",
+    "bugku/img63.png",
+    "bugku/img62.png",
+    "bugku/img61.png",
+    "bugku/img59.png",
+    "bugku/img58.png",
+    "bugku/img57.png",
+    "bugku/img56.png",
+    "bugku/img54.png",
     "bugku/index.md",
+    "new111/常用命令.md",
+    "myFirstblog/index.md",
     "DC-3靶场渗透详细过程/index.md",
     "bugku/bugku.md",
-    "new111/常用命令.md",
     "bugku",
     "markdown-syntax/index.md",
     "new111/picture",
     "DC-3靶场渗透详细过程/picture",
     "DC-3靶场渗透详细过程/dc3 - 用于合并.files",
     "DC-3靶场渗透详细过程",
-    "myFirstblog/index.md",
     "new111/pic"
   ]
 }
