@@ -1,0 +1,23 @@
+/* 1. 强制图片独占一行，解决文字在右侧溢出的问题 */
+.article-post img {
+    display: block !important;
+    max-width: 100% !important;
+    height: auto !important;
+    margin: 2rem auto !important; /* 增加上下间距 */
+    clear: both !important;       /* 彻底清除左右浮动 */
+}
+
+/* 2. 修正那个刺眼的蓝色背景块 */
+code {
+    background-color: #f5f5f5 !important; /* 改为浅灰色 */
+    color: #e83e8c !important;           /* 代码文本颜色 */
+    padding: 0.2rem 0.4rem !important;
+    border-radius: 4px !important;
+    border: 1px solid #ddd !important;
+}
+
+/* 3. 如果蓝色块是特定 span 标签，也一并重置 */
+.article-post span {
+    background: none !important;
+    color: inherit !important;
+}
